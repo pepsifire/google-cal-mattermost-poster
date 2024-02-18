@@ -1,0 +1,7 @@
+{
+    "google_api_key": "api-key",
+    "calendar_id": "id-here@group.calendar.google.com",
+    "mm_url": "url.page.fqdn",
+    "mm_api_key": "api-key",
+    "mm_team_name": "team-name"
+}
