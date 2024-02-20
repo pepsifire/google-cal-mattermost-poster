@@ -119,9 +119,10 @@ todaysEvents = getTodaysEvents()
 eventsSoon = getEventsSoon(30)
 currentTime = datetime.now(timezone.utc).astimezone()
 print(eventsSoon)
+print(currentTime)
 
 if len(eventsSoon) != 0:
     # Check that the start date is in the future before sending
-    if datetime.fromisoformat(eventsSoon[0].start) > (currentTime + timedelta(minutes = 5)):
+    if datetime.fromisoformat(eventsSoon[0].start) > (currentTime - timedelta(minutes = 5)):
         print("Sending message")    
         driver.postEventToChannel(postingChannel, eventsSoon[0])
