@@ -2,7 +2,7 @@ from mattermostdriver import Driver
 from config import Config
 from getCalendarEvents import getEventsSoon, getTodaysEvents
 from event import Event
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 def parseIsoTimeString(timestring: str):
     try:
@@ -122,6 +122,6 @@ print(eventsSoon)
 
 if len(eventsSoon) != 0:
     # Check that the start date is in the future before sending
-    if datetime.fromisoformat(eventsSoon[0].start) > currentTime:
+    if datetime.fromisoformat(eventsSoon[0].start) > (currentTime + timedelta(minutes = 5)):
         print("Sending message")    
         driver.postEventToChannel(postingChannel, eventsSoon[0])
